@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import { connectDB } from "./config/db";
 import productsRouter from "./routes/products";
+import usersRouter from "./routes/users";
 
 dotenv.config();
 
@@ -14,7 +15,8 @@ app.get("/", (req, res) => {
   res.send("Server connected!");
 });
 
-app.use("/api/products", productsRouter)
+app.use("/api/products", productsRouter);
+app.use("/api/users", usersRouter);
 
 connectDB();
 
