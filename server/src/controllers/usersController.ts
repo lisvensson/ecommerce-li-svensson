@@ -130,9 +130,9 @@ export const deleteUser = async (req: Request, res: Response) => {
     try {
         const { id } = req.params;
 
-        const deletedUser = await UserModel.findByIdAndDelete(id);
+        const deleteUser = await UserModel.findByIdAndDelete(id);
 
-        if (!deletedUser) {
+        if (!deleteUser) {
         return res.status(404).json({ message: "User not found" });
         }
 

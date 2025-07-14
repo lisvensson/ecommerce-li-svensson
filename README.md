@@ -1,8 +1,12 @@
 # ecommerce-li-svensson
 
-## API ENDPOINTS
-### PRODUCTS endpoints
+## API DOCUMENTATION
+- [PRODUCTS endpoints](https://github.com/lisvensson/ecommerce-li-svensson/tree/main/#products-endpoints)
+- [USERS endpoints](https://github.com/lisvensson/ecommerce-li-svensson/tree/main/#users-endpoints)
+- [ORDERS endpoints](https://github.com/lisvensson/ecommerce-li-svensson/tree/main/#orders-endpoints)
+- [ORDER ITEMS endpoints](https://github.com/lisvensson/ecommerce-li-svensson/tree/main/#orderitems-endpoints)
 
+### PRODUCTS endpoints
 - [GET] http://localhost:3000/api/products
 - Description: Fetches all products.
 
@@ -446,23 +450,7 @@
         {
             "_id": "6874f9c5d7407475c91de000",
             "orderId": "6874f9c5d7407475c91ddffe",
-            "productId": {
-                "_id": "68734e08ff89193f4ce3cfb2",
-                "name": "Product name 2",
-                "details": "Details 2",
-                "description": "Description 2",
-                "price": 200,
-                "stock": 2,
-                "category": "Category 2",
-                "size": "2",
-                "images": [
-                    "https://example.com/image1.jpg",
-                    "https://example.com/image2.jpg",
-                    "https://example.com/image3.jpg"
-                ],
-                "createdAt": "2024-07-13T08:00:00.000Z",
-                "updatedAt": "2025-07-13T07:04:40.258Z"
-            },
+            "productId": "68734e08ff89193f4ce3cfb2",
             "productName": "Product name 2",
             "unitPrice": 200,
             "quantity": 3,
@@ -472,23 +460,7 @@
         {
             "_id": "6874f9c5d7407475c91de002",
             "orderId": "6874f9c5d7407475c91ddffe",
-            "productId": {
-                "_id": "68734e1aff89193f4ce3cfb3",
-                "name": "Product name 3",
-                "details": "Details 3",
-                "description": "Description 3",
-                "price": 300,
-                "stock": 3,
-                "category": "Category 3",
-                "size": "3",
-                "images": [
-                    "https://example.com/image1.jpg",
-                    "https://example.com/image2.jpg",
-                    "https://example.com/image3.jpg"
-                ],
-                "createdAt": "2024-07-13T08:00:00.000Z",
-                "updatedAt": "2025-07-13T07:05:21.720Z"
-            },
+            "productId": "68734e1aff89193f4ce3cfb3",
             "productName": "Product name 3",
             "unitPrice": 300,
             "quantity": 1,
@@ -537,23 +509,7 @@
         {
             "_id": "6874f9c5d7407475c91de000",
             "orderId": "6874f9c5d7407475c91ddffe",
-            "productId": {
-                "_id": "68734e08ff89193f4ce3cfb2",
-                "name": "Product name 2",
-                "details": "Details 2",
-                "description": "Description 2",
-                "price": 200,
-                "stock": 2,
-                "category": "Category 2",
-                "size": "2",
-                "images": [
-                    "https://example.com/image1.jpg",
-                    "https://example.com/image2.jpg",
-                    "https://example.com/image3.jpg"
-                ],
-                "createdAt": "2024-07-13T08:00:00.000Z",
-                "updatedAt": "2025-07-13T07:04:40.258Z"
-            },
+            "productId": "68734e08ff89193f4ce3cfb2",
             "productName": "Product name 2",
             "unitPrice": 200,
             "quantity": 3,
@@ -563,23 +519,7 @@
         {
             "_id": "6874f9c5d7407475c91de002",
             "orderId": "6874f9c5d7407475c91ddffe",
-            "productId": {
-                "_id": "68734e1aff89193f4ce3cfb3",
-                "name": "Product name 3",
-                "details": "Details 3",
-                "description": "Description 3",
-                "price": 300,
-                "stock": 3,
-                "category": "Category 3",
-                "size": "3",
-                "images": [
-                    "https://example.com/image1.jpg",
-                    "https://example.com/image2.jpg",
-                    "https://example.com/image3.jpg"
-                ],
-                "createdAt": "2024-07-13T08:00:00.000Z",
-                "updatedAt": "2025-07-13T07:05:21.720Z"
-            },
+            "productId": "68734e1aff89193f4ce3cfb3",
             "productName": "Product name 3",
             "unitPrice": 300,
             "quantity": 1,
@@ -675,5 +615,53 @@
 ```
 {
     "message": "Order deleted"
+}
+```
+
+### ORDER ITEMS endpoint
+- [PATCH] http://localhost:3000/api/ordersitems/:id
+- Description: Updates quantity for a specific order item by ID.
+
+---
+
+> Request JSON Body:
+
+```
+{
+    "quantity": 2
+}
+```
+
+> Response Body:
+
+```
+{
+    "message": "Order item updated",
+    "item": {
+        "_id": "68750b32ca26304673d74b21",
+        "orderId": "68750b32ca26304673d74b1f",
+        "productId": "68734e08ff89193f4ce3cfb2",
+        "productName": "Product name 2",
+        "unitPrice": 200,
+        "quantity": 2,
+        "createdAt": "2025-07-14T13:50:42.841Z",
+        "updatedAt": "2025-07-14T13:51:29.031Z"
+	}
+}
+```
+
+- [DELETE] http://localhost:3000/api/orderitems/:id
+- Description: Deletes a specific order item by ID.
+
+---
+
+> Request JSON Body:
+> `None`
+
+> Response Body:
+
+```
+{
+    "message": "Order item deleted"
 }
 ```

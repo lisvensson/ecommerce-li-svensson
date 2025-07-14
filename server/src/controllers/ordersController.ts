@@ -23,7 +23,7 @@ export const getOrderById = async (req: Request, res: Response) => {
             return res.status(404).json({ message: "Order not found" });
         }
 
-        const orderItems = await OrderItemModel.find({ orderId: id }).populate("productId");
+        const orderItems = await OrderItemModel.find({ orderId: id });
 
         return res.status(200).json({
             ...order.toObject(),
@@ -45,7 +45,7 @@ export const getOrderByPaymentId = async (req: Request, res: Response) => {
             return res.status(404).json({ message: "Order not found" });
         }
 
-        const orderItems = await OrderItemModel.find({ orderId: order._id }).populate("productId");
+        const orderItems = await OrderItemModel.find({ orderId: order._id });
 
         return res.status(200).json({
             ...order.toObject(),
@@ -140,9 +140,9 @@ export const deleteOrder = async (req: Request, res: Response) => {
     try {
         const { id } = req.params;
 
-        const deletedOrder = await OrderModel.findByIdAndDelete(id);
+        const deleteOrder = await OrderModel.findByIdAndDelete(id);
 
-        if (!deletedOrder) {
+        if (!deleteOrder) {
             return res.status(404).json({ message: "Order not found" });
         }
 
