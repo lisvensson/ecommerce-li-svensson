@@ -371,3 +371,309 @@
     "message": "User deleted"
 }
 ```
+
+### ORDERS endpoints
+- [GET] http://localhost:3000/api/orders
+- Description: Fetches all orders.
+
+---
+
+> Request JSON Body:
+> `None`
+
+> Response JSON Body:
+
+```
+[
+    {
+        "_id": "6874e759f2b8791fae32f273",
+        "customer": "68734f68ff89193f4ce3cfb8",
+        "totalPrice": 600,
+        "paymentStatus": "paid",
+        "paymentId": "payment-1",
+        "orderStatus": "processing",
+        "createdAt": "2025-07-14T11:17:45.403Z",
+        "updatedAt": "2025-07-14T11:17:45.403Z"
+    },
+    {
+        "_id": "6874e7b9f2b8791fae32f279",
+        "customer": "6874d6dfe147358b9e3d69e9",
+        "totalPrice": 1100,
+        "paymentStatus": "paid",
+        "paymentId": "payment-2",
+        "orderStatus": "completed",
+        "createdAt": "2025-07-14T11:19:21.792Z",
+        "updatedAt": "2025-07-14T11:19:21.792Z"
+    },
+]
+```
+
+- [GET] http://localhost:3000/api/orders/:id
+- Description: Fetches a specific order by ID.
+
+---
+
+> Request JSON Body:
+> `None`
+
+> Response JSON Body:
+
+```
+{
+    "_id": "6874f9c5d7407475c91ddffe",
+    "customer": {
+        "_id": "6874d6dfe147358b9e3d69e9",
+        "firstName": "Test",
+        "lastName": "Testsson",
+        "address": "Testvägen 1",
+        "postalCode": "12345",
+        "city": "Teststad",
+        "country": "Testland",
+        "phone": "+4671234567",
+        "email": "test@test.com",
+        "password": "$2b$15$pxNSuq6Pq6O929h/2NodkuNGJG3vBv7LdN4i6FwKLSyVYTbXAIRxq",
+        "role": "customer",
+        "createdAt": "2025-07-14T10:07:27.924Z",
+        "updatedAt": null
+    },
+    "totalPrice": 900,
+    "paymentStatus": "paid",
+    "paymentId": "payment-4",
+    "orderStatus": "pending",
+    "createdAt": "2025-07-14T12:36:21.510Z",
+    "updatedAt": "2025-07-14T12:36:21.510Z",
+    "orderItems": [
+        {
+            "_id": "6874f9c5d7407475c91de000",
+            "orderId": "6874f9c5d7407475c91ddffe",
+            "productId": {
+                "_id": "68734e08ff89193f4ce3cfb2",
+                "name": "Product name 2",
+                "details": "Details 2",
+                "description": "Description 2",
+                "price": 200,
+                "stock": 2,
+                "category": "Category 2",
+                "size": "2",
+                "images": [
+                    "https://example.com/image1.jpg",
+                    "https://example.com/image2.jpg",
+                    "https://example.com/image3.jpg"
+                ],
+                "createdAt": "2024-07-13T08:00:00.000Z",
+                "updatedAt": "2025-07-13T07:04:40.258Z"
+            },
+            "productName": "Product name 2",
+            "unitPrice": 200,
+            "quantity": 3,
+            "createdAt": "2025-07-14T12:36:21.548Z",
+            "updatedAt": "2025-07-14T12:36:21.548Z"
+        },
+        {
+            "_id": "6874f9c5d7407475c91de002",
+            "orderId": "6874f9c5d7407475c91ddffe",
+            "productId": {
+                "_id": "68734e1aff89193f4ce3cfb3",
+                "name": "Product name 3",
+                "details": "Details 3",
+                "description": "Description 3",
+                "price": 300,
+                "stock": 3,
+                "category": "Category 3",
+                "size": "3",
+                "images": [
+                    "https://example.com/image1.jpg",
+                    "https://example.com/image2.jpg",
+                    "https://example.com/image3.jpg"
+                ],
+                "createdAt": "2024-07-13T08:00:00.000Z",
+                "updatedAt": "2025-07-13T07:05:21.720Z"
+            },
+            "productName": "Product name 3",
+            "unitPrice": 300,
+            "quantity": 1,
+            "createdAt": "2025-07-14T12:36:21.568Z",
+            "updatedAt": "2025-07-14T12:36:21.568Z"
+        }
+    ]
+}
+```
+
+- [GET] http://localhost:3000/api/orders/payment/:id
+- Description: Fetches a specific order by payment ID.
+
+---
+
+> Request JSON Body:
+> `None`
+
+> Response JSON Body:
+
+```
+{
+    "_id": "6874f9c5d7407475c91ddffe",
+    "customer": {
+        "_id": "6874d6dfe147358b9e3d69e9",
+        "firstName": "Test",
+        "lastName": "Testsson",
+        "address": "Testvägen 1",
+        "postalCode": "12345",
+        "city": "Teststad",
+        "country": "Testland",
+        "phone": "+4671234567",
+        "email": "test@test.com",
+        "password": "$2b$15$pxNSuq6Pq6O929h/2NodkuNGJG3vBv7LdN4i6FwKLSyVYTbXAIRxq",
+        "role": "customer",
+        "createdAt": "2025-07-14T10:07:27.924Z",
+        "updatedAt": null
+    },
+    "totalPrice": 900,
+    "paymentStatus": "paid updated",
+    "paymentId": "payment-4-updated",
+    "orderStatus": "pending updated",
+    "createdAt": "2025-07-14T12:36:21.510Z",
+    "updatedAt": "2025-07-14T12:36:57.036Z"
+    "orderItems": [
+        {
+            "_id": "6874f9c5d7407475c91de000",
+            "orderId": "6874f9c5d7407475c91ddffe",
+            "productId": {
+                "_id": "68734e08ff89193f4ce3cfb2",
+                "name": "Product name 2",
+                "details": "Details 2",
+                "description": "Description 2",
+                "price": 200,
+                "stock": 2,
+                "category": "Category 2",
+                "size": "2",
+                "images": [
+                    "https://example.com/image1.jpg",
+                    "https://example.com/image2.jpg",
+                    "https://example.com/image3.jpg"
+                ],
+                "createdAt": "2024-07-13T08:00:00.000Z",
+                "updatedAt": "2025-07-13T07:04:40.258Z"
+            },
+            "productName": "Product name 2",
+            "unitPrice": 200,
+            "quantity": 3,
+            "createdAt": "2025-07-14T12:36:21.548Z",
+            "updatedAt": "2025-07-14T12:36:21.548Z"
+        },
+        {
+            "_id": "6874f9c5d7407475c91de002",
+            "orderId": "6874f9c5d7407475c91ddffe",
+            "productId": {
+                "_id": "68734e1aff89193f4ce3cfb3",
+                "name": "Product name 3",
+                "details": "Details 3",
+                "description": "Description 3",
+                "price": 300,
+                "stock": 3,
+                "category": "Category 3",
+                "size": "3",
+                "images": [
+                    "https://example.com/image1.jpg",
+                    "https://example.com/image2.jpg",
+                    "https://example.com/image3.jpg"
+                ],
+                "createdAt": "2024-07-13T08:00:00.000Z",
+                "updatedAt": "2025-07-13T07:05:21.720Z"
+            },
+            "productName": "Product name 3",
+            "unitPrice": 300,
+            "quantity": 1,
+            "createdAt": "2025-07-14T12:36:21.568Z",
+            "updatedAt": "2025-07-14T12:36:21.568Z"
+        }
+    ]
+}
+```
+
+- [POST] http://localhost:3000/api/orders
+- Description: Creates a new order.
+
+---
+
+> Request JSON Body:
+
+```
+{
+    "customer": "6874d6dfe147358b9e3d69e9",
+    "paymentStatus": "paid",
+    "paymentId": "payment-4",
+    "orderStatus": "pending",
+    "orderItems": [
+        {
+            "productId": "68734e08ff89193f4ce3cfb2",
+            "productName": "Product name 2",
+            "unitPrice": 200,
+            "quantity": 3
+        },
+        {
+        "productId": "68734e1aff89193f4ce3cfb3",
+        "productName": "Product name 3",
+        "unitPrice": 300,
+        "quantity": 1
+        }
+    ]
+}
+```
+
+> Response JSON Body:
+
+```
+{
+   "message": "Order created",
+   "_id": "6874f9c5d7407475c91ddffe"
+}
+```
+
+- [PATCH] http://localhost:3000/api/orders/:id
+- Description: Updates a specific order by ID.
+
+---
+
+> Request JSON Body:
+
+```
+{
+    "paymentStatus": "paid updated",
+    "paymentId": "payment-4-updated",
+    "orderStatus": "pending updated"
+}
+```
+
+> Response Body:
+
+```
+{
+    "message": "Order updated",
+    "order": {
+        "_id": "6874f9c5d7407475c91ddffe",
+        "customer": "6874d6dfe147358b9e3d69e9",
+        "totalPrice": 900,
+        "paymentStatus": "paid updated",
+        "paymentId": "payment-4-updated",
+        "orderStatus": "pending updated",
+        "createdAt": "2025-07-14T12:36:21.510Z",
+        "updatedAt": "2025-07-14T12:36:57.036Z"
+	}
+}
+```
+
+- [DELETE] http://localhost:3000/api/orders/:id
+- Description: Deletes a specific order by ID.
+
+---
+
+> Request JSON Body:
+> `None`
+
+> Response Body:
+
+```
+{
+    "message": "Order deleted"
+}
+```

@@ -7,7 +7,7 @@ export const getAllProducts = async (req: Request, res: Response) => {
         const products = await ProductModel.find();
         res.status(200).json(products);
     } catch (error) {
-        console.log("Error fetching products:", error);
+        console.error("Error fetching products:", error);
         res.status(500).json({ message: "Internal server error" });
     }
 };
@@ -24,7 +24,7 @@ export const getProductById = async (req: Request, res: Response) => {
 
         res.status(200).json(product);
     } catch (error) {
-        console.log("Error fetching product", error);
+        console.error("Error fetching product", error);
         res.status(500).json({ message: "Internal server error" });
     }
 };

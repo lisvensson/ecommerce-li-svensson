@@ -14,5 +14,5 @@ const productSchema = new Schema({
     updatedAt: { type: Date, default: Date.now }
 }, { versionKey: false });
 
-const OrderModel = mongoose.model("Product", productSchema, "products");
-export default OrderModel;
+const ProductModel = mongoose.model("Product", productSchema, "products");
+export default ProductModel;

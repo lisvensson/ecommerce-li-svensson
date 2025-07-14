@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 const { Schema } = mongoose;
 
 const orderSchema = new Schema({
-    userId: { type: Schema.Types.ObjectId, ref: "User"},
+    customer: { type: Schema.Types.ObjectId, ref: "User"},
     totalPrice: { type: Number, required: true },
     paymentStatus: { type: String, required: true },
     paymentId: { type: String, required: true },

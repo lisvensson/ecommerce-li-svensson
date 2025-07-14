@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import { connectDB } from "./config/db";
 import productsRouter from "./routes/products";
 import usersRouter from "./routes/users";
+import ordersRouter from "./routes/orders";
 
 dotenv.config();
 
@@ -17,6 +18,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/products", productsRouter);
 app.use("/api/users", usersRouter);
+app.use("/api/orders", ordersRouter);
 
 connectDB();
 
