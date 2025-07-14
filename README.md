@@ -4,7 +4,7 @@
 - [PRODUCTS endpoints](https://github.com/lisvensson/ecommerce-li-svensson/tree/main/#products-endpoints)
 - [USERS endpoints](https://github.com/lisvensson/ecommerce-li-svensson/tree/main/#users-endpoints)
 - [ORDERS endpoints](https://github.com/lisvensson/ecommerce-li-svensson/tree/main/#orders-endpoints)
-- [ORDER ITEMS endpoints](https://github.com/lisvensson/ecommerce-li-svensson/tree/main/#orderitems-endpoints)
+- [ORDER ITEMS endpoints](https://github.com/lisvensson/ecommerce-li-svensson/tree/main/#order-items-endpoints)
 
 ### PRODUCTS endpoints
 - [GET] http://localhost:3000/api/products
@@ -618,7 +618,7 @@
 }
 ```
 
-### ORDER ITEMS endpoint
+### ORDER ITEMS endpoints
 - [PATCH] http://localhost:3000/api/ordersitems/:id
 - Description: Updates quantity for a specific order item by ID.
 
